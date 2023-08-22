@@ -68,6 +68,7 @@ main > * {
     font-family: FFF-Forward, Helvetica, sans-serif;
     font-size: 14px;
     text-align: center;
+    transition: 0.3s ease-in-out;
 }
 
 p > b {
@@ -80,15 +81,27 @@ p > b {
     text-shadow: black 0 0 2px;
 }
 
+.player-1.hidden {
+    transform: translateY(-30px);
+}
+
 .player-2 {
     color: rgb(253, 188, 66);
     text-shadow: black 0 0 2px;
+    transform: translateY(-30px);
 }
 
-.hidden {
-    position: absolute;
-    top: -150px;
+.player-2.hidden {
+    transform: translateY(30px);
 }
+
+/* .hidden {
+    transform: translateY(-150px);
+} */
+
+/* .hidden  {
+    transform: translateY(150px);
+} */
 
 .drop-down-menu {
     position: relative;
@@ -116,11 +129,10 @@ p > b {
     font-size: x-small;
 
     cursor: pointer;
-    transition: 0.1s ease-in-out;
 }
 
 #actions {
-    z-index: 1;
+    z-index: 2;
 }
 
 .show {
