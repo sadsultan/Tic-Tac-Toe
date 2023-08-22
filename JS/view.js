@@ -5,47 +5,20 @@
 // - togglePlayer (call once and it will change the playerdisplay to the opposite one)
 // - displayBoard (takes the time to update the board, call it every turn)
 // - resetGame (resets all the displays on the board, call it when the game is over)
-
-
-// #enableDropdown() {
-//         const actions = document.querySelector('#actions');
-//         const reset = document.querySelector('#reset');
-//         const newGame = document.querySelector('#new-game');
-//         const e = [actions, reset, newGame];
-
-//         function toggleDropdown(e) {
-//             e.forEach((e) => {
-//                 e.classList.toggle('show');
-//             });
-//         }
-
-//         actions.addEventListener('click', () => {
-//             toggleDropdown(e);
-//         });
-
-//         reset.addEventListener('click', () => {
-//             toggleDropdown(e);
-//             resetGame();
-//         });
-
-//         newGame.addEventListener('click', () => {
-//             toggleDropdown(e);
-//             newGame();
-//         });
-//     }
+// - resetAll (resets everything, call it when the game is over)
+// - gameOver (displays the winner and calls resetGame)
 
 export default class View { 
     emptyBoard = ['','','','','','','','',''];
     counts = ['p1-win-count','p2-win-count','draw-count'];
+
     constructor(player, board=emptyBoard, p1_win_count=0, p2_win_count=0, draw_count=0){
         this.#countValues = [p1_win_count, p2_win_count, draw_count]
-
-        this.#setPlayer(player);
-
         for (let i = 0; i < counts.length; i++) {
             this.updateCount(this.count[i], this.#countValues[i]);
         }
 
+        this.#setPlayer(player);
         this.displayBoard(board);
     }
 
@@ -74,8 +47,32 @@ export default class View {
         }
     }
 
+    gameOver(winner) {
+        const winnerDisplay = document.createElement('div');
+        winnerDisplay.classList.add('winner-display');
+        winnerDisplay.id = 'winner-display';
+
+        const winnerMessage = document.createElement('p');
+        winnerMessage.innerText = `COngratulations to Player ${winner} for the win!!`;
+
+        const resetButton = document.createElement('button');
+        resetButton.innerText = 'Reset Game';
+        resetButton.id = 'reset-game';
+
+        winnerDisplay.appendChild(winnerMessage);
+        winnerDisplay.appendChild(resetButton);
+        document.body.appendChild(winnerDisplay);
+    }
+
     resetGame() {
         this.#setPlayer(1);
         this.displayBoard(this.emptyBoard);
+    }
+
+    resetAll() {
+        this.resetGame();
+        for (let i = 0; i < counts.length; i++) {
+            this.updateCount(this.count[i], 0);
+        }
     }
 }
