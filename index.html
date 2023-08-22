@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main>
+        <!-- Indicator and menu bar on top -->
+        <div class="turn-indicator top" id="turn-indicator">
+            <p class="hidden player-1" id="player-1"><b>X</b> Player 1 is up</p>
+            <p class="hidden player-2" id="player-2"><b>O</b> Player 2 is up</p>
+        </div>
+        <div class="drop-down-menu top">
+            <div class="drop-down-item" id="actions">Actions:</div>
+            <div class="drop-down-item" id="reset">Reset</div>
+            <div class="drop-down-item" id="new-game">New Game</div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="board-square" data-id="0"></div>
+        <div class="board-square" data-id="1"></div>
+        <div class="board-square" data-id="2"></div>
+        <div class="board-square" data-id="3"></div>
+        <div class="board-square" data-id="4"></div>
+        <div class="board-square" data-id="5"></div>
+        <div class="board-square" data-id="6"></div>
+        <div class="board-square" data-id="7"></div>
+        <div class="board-square" data-id="8"></div>
+
+        <!-- Score counters at bottom -->
+        <div class="bottom p1-wins">
+            <p>Player 1 score:</p>
+            <p id="p1-win-count">0</p>
+        </div>
+        <div class="bottom draws">
+            <p>Total draws:</p>
+            <p id="draw-count">0</p>
+        </div>
+        <div class="bottom p2-wins">
+            <p>Player 2 score:</p>
+            <p id="p2-win-count">0</p>
+        </div>
+    </main>
+    <footer>
+        <p>
+            Fonts sourced from <a href="https://www.fontspace.com/ggbotnet">ggbotnet</a> and 
+            <a href="http://zone38.com">Codeman38</a>
+        </p>
+        <p>
+            Image by <a href="https://www.freepik.com/free-vector/pixel-art-vacation-background_29019073.htm#&position=1&from_view=undefined">
+            pikisuperstar</a> on Freepik
+        </p>
+        <p>
+            Created by <a href="github.com/sadsultan">Saad Sultan</a>
+        </p>
+    </footer>
+</body>
+</html>
