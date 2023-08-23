@@ -12,32 +12,37 @@ export default class View {
     emptyBoard = ['','','','','','','','',''];
     counts = ['p1-win-count','p2-win-count','draw-count'];
 
-    constructor(player, board=emptyBoard, p1_win_count=0, p2_win_count=0, draw_count=0){
-        this.#countValues = [p1_win_count, p2_win_count, draw_count]
-        for (let i = 0; i < counts.length; i++) {
-            this.updateCount(this.count[i], this.#countValues[i]);
+    constructor($){
+        this.countValues = [$.p1Score, $.p2Score, $.drawCount]
+        for (let i = 0; i < this.counts.length; i++) {
+            this.updateCount(this.counts[i], this.countValues[i]);
         }
 
-        this.#setPlayer(player);
-        this.displayBoard(board);
+        this.setPlayer($.nextPlayer);
+        this.displayBoard($.board);
+
+        if ($.gameOver){
+            this.gameOver($.winner, $.isDraw);
+        }
     }
 
-    #setPlayer(player) {
-        const player = document.getElementById(`player-${player}`);
-        player.classList.toggle('hidden');
+    setPlayer(player) {
+        const playerMessage = document.getElementById('player-' + player);
+        console.log(playerMessage);
+        playerMessage.classList.toggle('hidden');
     }
 
     updateCount(countId, count) {
-        const count = document.getElementById(countId);
-        count.innerText = count;
+        const countDisplay = document.getElementById(countId);
+        countDisplay.innerText = count;
     }
 
     togglePlayer() {
         const player1 = document.querySelector('#player-1');
         const player2 = document.querySelector('#player-2');
         
-        player1.toggle('hidden');
-        player2.toggle('hidden');
+        player1.classList.toggle('hidden');
+        player2.classList.toggle('hidden');
     }
 
     displayBoard(board) {
@@ -47,13 +52,17 @@ export default class View {
         }
     }
 
-    gameOver(winner) {
+    gameOver(winner, draw=false) {
         const winnerDisplay = document.createElement('div');
         winnerDisplay.classList.add('winner-display');
         winnerDisplay.id = 'winner-display';
 
         const winnerMessage = document.createElement('p');
-        winnerMessage.innerText = `COngratulations to Player ${winner} for the win!!`;
+        if (draw) {
+            winnerMessage.innerText = 'There were no winners, this is a draw :(';
+        } else {
+            winnerMessage.innerText = `Congratulations to Player ${winner} for the win!!`;
+        }
 
         const resetButton = document.createElement('button');
         resetButton.innerText = 'Reset Game';
@@ -65,7 +74,7 @@ export default class View {
     }
 
     resetGame() {
-        this.#setPlayer(1);
+        this.setPlayer(1);
         this.displayBoard(this.emptyBoard);
     }
 

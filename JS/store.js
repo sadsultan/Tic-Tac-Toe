@@ -13,28 +13,34 @@
 // - drawCount (draw count)
 
 
+const $$ = {
+    board : localStorage.getItem('board') ? JSON.parse(localStorage.getItem('board')) : ['', '', '', '', '', '', '', '', ''],
+    p1Score : localStorage.getItem('p1-win-count') ? JSON.parse(localStorage.getItem('p1Score')) : 0,
+    p2Score : localStorage.getItem('p2-win-count') ? JSON.parse(localStorage.getItem('p2Score')) : 0,
+    drawCount : localStorage.getItem('draw-count') ? JSON.parse(localStorage.getItem('winner')) : '',
+}
+
 export default class Model {
     constructor() {
-        this.board = localStorage.getItem('board') ? JSON.parse(localStorage.getItem('board')) : ['', '', '', '', '', '', '', '', ''];
-        this.p1Score = localStorage.getItem('p1-win-count') ? JSON.parse(localStorage.getItem('p1Score')) : 0;
-        this.p2Score = localStorage.getItem('p2-win-count') ? JSON.parse(localStorage.getItem('p2Score')) : 0;
-        this.drawCount = localStorage.getItem('draw-count') ? JSON.parse(localStorage.getItem('winner')) : '';
-
-        this.winner = this.checkWin(this.board);
-        this.draw = this.checkDraw(this.board);
-        this.gameOver = this.win || this.draw;
-        this.lastPlayer = this.lastPlayer(board);
+        this.$ = {
+            ...$$,
+            nextPlayer : this.#nextPlayer($$.board),
+            winner: this.checkWin($$.board),
+            isDraw : this.checkDraw($$.board)
+        }
+        this.$.gameOver = this.$.winner || this.$.isDraw;
     }
 
-    lastPlayer(board) {
-        const lastPlayer = (board.filter(cell => cell !== '').length);
-        return lastPlayer % 2 === 0 ? 'X' : 'O';
+    #nextPlayer(board) {
+        const totalMoves = (board.filter(cell => cell !== '').length);
+        return totalMoves % 2 === 0? 1 : 2 ;
     }
 
     // The board is a 1D array of 9 elements:
     //   [0,1,2,
     //    3,4,5,
     //    6,7,8]
+
     checkWin(board) {
         // check rows
         for (let i = 0; i < 9; i += 3) {
@@ -63,18 +69,18 @@ export default class Model {
     }
 
     saveState() {
-        localStorage.setItem('board', JSON.stringify(this.board));
-        localStorage.setItem('p1-win-count', JSON.stringify(this.p1Score));
-        localStorage.setItem('p2-win-count', JSON.stringify(this.p2Score));
-        localStorage.setItem('draw-count', JSON.stringify(this.drawCount));
+        localStorage.setItem('board', JSON.stringify(this.$.board));
+        localStorage.setItem('p1-win-count', JSON.stringify(this.$.p1Score));
+        localStorage.setItem('p2-win-count', JSON.stringify(this.$.p2Score));
+        localStorage.setItem('draw-count', JSON.stringify(this.$.drawCount));
     }
 
     resetBoard() {
-        this.board = ['', '', '', '', '', '', '', '', ''];
-        this.winner = false;
-        this.draw = false;
-        this.gameOver = false;
-        this.lastPlayer = 2;
+        this.$.board = ['', '', '', '', '', '', '', '', ''];
+        this.$.winner = false;
+        this.$.draw = false;
+        this.$.gameOver = false;
+        this.$.lastPlayer = 2;
     }
 
     resetScore() {

@@ -95,14 +95,6 @@ p > b {
     transform: translateY(30px);
 }
 
-/* .hidden {
-    transform: translateY(-150px);
-} */
-
-/* .hidden  {
-    transform: translateY(150px);
-} */
-
 .drop-down-menu {
     position: relative;
     height: 30px;
@@ -231,6 +223,10 @@ footer a {
 footer a:hover {
     color: white;
     text-decoration: underline;
+}
+
+.blur {
+    filter: blur(5px);
 }
 
 .winner-display {
