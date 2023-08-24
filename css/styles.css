@@ -85,10 +85,13 @@ p > b {
     transform: translateY(-30px);
 }
 
+.turn-indicator > .player-2 {
+    transform: translateY(-30px);
+}
+
 .player-2 {
     color: rgb(253, 188, 66);
     text-shadow: black 0 0 2px;
-    transform: translateY(-30px);
 }
 
 .player-2.hidden {
