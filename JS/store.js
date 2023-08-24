@@ -17,7 +17,7 @@ const $$ = {
     board : localStorage.getItem('board') ? JSON.parse(localStorage.getItem('board')) : ['', '', '', '', '', '', '', '', ''],
     p1Score : localStorage.getItem('p1-win-count') ? JSON.parse(localStorage.getItem('p1Score')) : 0,
     p2Score : localStorage.getItem('p2-win-count') ? JSON.parse(localStorage.getItem('p2Score')) : 0,
-    drawCount : localStorage.getItem('draw-count') ? JSON.parse(localStorage.getItem('winner')) : '',
+    drawCount : localStorage.getItem('draw-count') ? JSON.parse(localStorage.getItem('winner')) : 0,
 }
 
 export default class Model {
@@ -80,7 +80,7 @@ export default class Model {
         this.$.winner = false;
         this.$.draw = false;
         this.$.gameOver = false;
-        this.$.lastPlayer = 2;
+        this.$.nextPlayer = 1;
     }
 
     resetScore() {

@@ -181,22 +181,22 @@ p > b {
     border: yellow 2px solid;
 }
 
+.draws {
+    color: white;
+    text-shadow: black 0 0 2px;
+    background-color: rgb(171, 4, 171);
+}
+
 .p1-wins {
     color: yellow;
     text-shadow: black 0 0 2px;
-    background-color: rgb(84, 1, 84);
+    background-color: rgb(114, 3, 114);
 }
 
 .p2-wins {
     color: rgb(253, 188, 66);
     text-shadow: black 0 0 2px;
-    background-color: rgb(171, 4, 171);
-}
-
-.draws {
-    color: white;
-    text-shadow: black 0 0 2px;
-    background-color: rgb(114, 3, 114);
+    background-color: rgb(84, 1, 84);
 }
 
 footer  {
@@ -227,6 +227,12 @@ footer a:hover {
 
 .blur {
     filter: blur(5px);
+}
+
+.blur > *:hover {
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
 
 .winner-display {

@@ -28,7 +28,6 @@ export default class View {
 
     setPlayer(player) {
         const playerMessage = document.getElementById('player-' + player);
-        console.log(playerMessage);
         playerMessage.classList.toggle('hidden');
     }
 
@@ -52,7 +51,7 @@ export default class View {
         }
     }
 
-    gameOver(winner, draw=false) {
+    gameOver(winner=0, draw=false) {
         const winnerDisplay = document.createElement('div');
         winnerDisplay.classList.add('winner-display');
         winnerDisplay.id = 'winner-display';
