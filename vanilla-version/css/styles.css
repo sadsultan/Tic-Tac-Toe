@@ -228,22 +228,12 @@ footer a:hover {
     text-decoration: underline;
 }
 
-.blur {
+.blur > * {
     filter: blur(5px);
 }
 
-.blur > *:hover {
-    border: none;
-    box-shadow: none;
-    outline: none;
-}
-
 .winner-display {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 20;
+    z-index: 10;
 
     display: flex;
     flex-direction: column;
@@ -254,7 +244,7 @@ footer a:hover {
     border-radius: 5px;
     padding: 10px;
     border: yellow 2px solid;
-    background-color: rgb(225, 105, 225);
+    background-color: rgb(84, 1, 84);
     box-shadow: 5px 5px 1px 2px rgba(0, 0, 0, 0.5);
 
     font-family: FFF-Forward, Helvetica, sans-serif;
@@ -266,18 +256,43 @@ footer a:hover {
     text-shadow: black 0 0 2px;
     text-align: center;
 
+    font-size: large;
     width: 200px;
 }
 
 .winner-display > button {
     border-radius: 5px;
     border: yellow 2px solid;
-    background-color: rgb(84, 1, 84);
+    background-color: rgb(225, 105, 225);;
 
     color: yellow;
     text-shadow: black 0 0 2px;
     cursor: pointer;
 
     width: 150px;
-    padding: 10px auto;
+    font-size: medium;
+    font-family: FFF-Forward;
+    padding: 10px;
+}
+
+.bg-cover {
+    position: absolute;
+    top: -100vh;
+    width: 100vw;
+    height: 100vh;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover {
+    top: 0;
+    z-index: 10;
+
+    background-color: rgba(0, 0, 0, 0.5);
 }
