@@ -17,8 +17,9 @@ export default class Model extends EventTarget {
     }
 
     get data() {
-        const data = JSON.parse(localStorage.getItem('gameData'));
-        return data ? structuredClone(data) : this.defaultData;
+        const rawData = localStorage.getItem('gameData');
+        let data = rawData ? JSON.parse(rawData) : this.defaultData;
+        return structuredClone(data);
     }
 
     set data(data) {
@@ -26,7 +27,7 @@ export default class Model extends EventTarget {
         this.dispatchEvent(new Event('dataChange'));
     }
 
-    move(index) {
+    move(index : number) {
         let data = this.data;
         if (data.board[index]) {
             alert('Invalid move!');
@@ -52,7 +53,7 @@ export default class Model extends EventTarget {
         this.data = data;
     }
 
-    checkWin(board) {
+    checkWin(board : gameBoard) {
         // check for horizontal wins
         for (let i = 0; i < 9; i += 3) {
             if (board[i] && board[i] === board[i + 1] && board[i] === board[i + 2]) {
@@ -75,7 +76,7 @@ export default class Model extends EventTarget {
         return 0;
     }
 
-    checkDraw(board) {
+    checkDraw(board : gameBoard) {
         return board.every(cell => cell);
     }
 }

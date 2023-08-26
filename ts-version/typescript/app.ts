@@ -13,7 +13,7 @@ function init() {
         view.loadGame(model.data);
     });
 
-    view.$.boardSquares.forEach(square => {
+    view.$$.boardSquares.forEach(square => {
         square.addEventListener('click', () => {
             model.move(+square.id)
         });
