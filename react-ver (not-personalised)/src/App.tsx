@@ -2,12 +2,10 @@ import "./App.css";
 
 import classNames from "classnames";
 
-// State types and helpers
 import type { GameState, Player } from "./types";
 import { useLocalStorage } from "./useLocalStorage";
 import { deriveStats, deriveGame } from "./utils";
 
-// Component imports
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Menu from "./components/Menu";
@@ -23,7 +21,6 @@ const initialState: GameState = {
 export default function App() {
   const [state, setState] = useLocalStorage("game-state-key", initialState);
 
-  // Derived state (updates on every state change)
   const game = deriveGame(state);
   const stats = deriveStats(state);
 
@@ -41,7 +38,6 @@ export default function App() {
 
       stateCopy.currentGameMoves = [];
 
-      // Must archive current round in addition to resetting current game
       if (isNewRound) {
         stateCopy.history.allGames.push(...stateCopy.history.currentRoundGames);
         stateCopy.history.currentRoundGames = [];

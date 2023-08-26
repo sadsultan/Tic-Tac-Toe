@@ -17,8 +17,7 @@
     border: none;
 }
 
-html,
-body {
+html, body {
     height: 100%;
     background-color: #1a2a32;
 }
@@ -35,8 +34,6 @@ button:hover {
     cursor: pointer;
     opacity: 90%;
 }
-
-/* Shared utility classes */
 
 .hidden {
     display: none !important;
