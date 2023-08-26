@@ -1,7 +1,7 @@
 {
   "name": "react-version",
   "version": "1.0.0",
-  "main": "index.jsx",
+  "main": "index.tsx",
   "license": "MIT",
   "scripts": {
     "dev": "webpack serve",
@@ -9,6 +9,7 @@
     "build:prod": "webpack --mode production"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
