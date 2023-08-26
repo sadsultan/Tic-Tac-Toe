@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main>
+        <!-- Indicator and menu bar on top -->
+        <div class="turn-indicator top" id="turn-indicator">
+            <p class="hidden player-1" id="player-1"><b>X</b> Player 1 is up</p>
+            <p class="hidden player-2" id="player-2"><b>O</b> Player 2 is up</p>
+        </div>
+        <div class="drop-down-menu top">
+            <div class="drop-down-item" id="actions">Actions:</div>
+            <div class="drop-down-item" id="reset">Start Next</div>
+            <div class="drop-down-item" id="new-game">New Game</div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="board-square" id="0" data-id="board-square"></div>
+        <div class="board-square" id="1" data-id="board-square"></div>
+        <div class="board-square" id="2" data-id="board-square"></div>
+        <div class="board-square" id="3" data-id="board-square"></div>
+        <div class="board-square" id="4" data-id="board-square"></div>
+        <div class="board-square" id="5" data-id="board-square"></div>
+        <div class="board-square" id="6" data-id="board-square"></div>
+        <div class="board-square" id="7" data-id="board-square"></div>
+        <div class="board-square" id="8" data-id="board-square"></div>
+
+        <!-- Score counters at bottom -->
+        <div class="bottom draws">
+            <p>Total draws:</p>
+            <p id="draw-count">0</p>
+        </div>
+
+        <div class="bottom p1-wins">
+            <p>Player 1 score:</p>
+            <p id="p1-win-count">0</p>
+        </div>
+        
+        <div class="bottom p2-wins">
+            <p>Player 2 score:</p>
+            <p id="p2-win-count">0</p>
+        </div>
+    </main>
+    <footer>
+        <p>
+            Fonts sourced from <a href="https://www.fontspace.com/ggbotnet" target="_blank" rel="noopener">ggbotnet</a> and 
+            <a href="http://zone38.com" target="_blank" rel="noopener">Codeman38</a>
+        </p>
+        <p>
+            Image by <a href="https://www.freepik.com/free-vector/pixel-art-vacation-background_29019073.htm" target="_blank" rel="noopener">
+            pikisuperstar</a> on Freepik
+        </p>
+        <p>
+            Created by <a href="https://github.com/sadsultan" target="_blank" rel="noopener">Saad Sultan</a>
+        </p>
+    </footer>
+    <div class="bg-cover" id="cover">
+        <div class="winner-display" id="winner-display">
+            <p>There are no winners this time! :( </p>
+            <button>Okay</button>
+        </div>
+    </div>
+    <script src="./dist/app.js" type="module"></script>
+</body>
+</html>
