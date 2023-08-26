@@ -4,6 +4,12 @@
     font-weight: 100;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .winner-display {
     z-index: 10;
 
@@ -48,24 +54,23 @@
     padding: 10px;
 }
 
+.winner-display > button:hover {
+    background-color: rgb(200, 84, 200);
+}
+
 .bg-cover {
     position: absolute;
-    top: -100vh;
     width: 100vw;
     height: 100vh;
 
     padding: 0;
     margin: 0;
 
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.cover {
-    top: 0;
-    z-index: 10;
-
-    background-color: rgba(0, 0, 0, 0.5);
 }

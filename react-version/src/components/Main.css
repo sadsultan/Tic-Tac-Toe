@@ -10,6 +10,12 @@
     font-weight: 100;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 main {
     background-color: purple;
     border-radius: 10px;

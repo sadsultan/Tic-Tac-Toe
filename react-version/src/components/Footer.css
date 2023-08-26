@@ -4,6 +4,12 @@
     font-weight: 100;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 footer {
     text-align: center;
     font-family: FFF-Forward, Helvetica, sans-serif;

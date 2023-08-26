@@ -9,10 +9,12 @@ import Modal from "./components/Modal";
 const rootElement = document.getElementById("react-root");
 const root = createRoot(rootElement!);
 
+let ShowModal = false;
+
 root.render(
   <StrictMode>
     <Main />
-    <Modal />
+    {ShowModal && <Modal message="Congratulations to Player 1! You win!!" />}
     <Footer />
   </StrictMode>
 );

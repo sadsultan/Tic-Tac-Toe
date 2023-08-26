@@ -1,10 +1,14 @@
 import "./Modal.css";
 
-export default function Modal() {
+type props = {
+    message: string;
+}
+
+export default function Modal({message}: props) {
     return (
         <div className="bg-cover" id="cover">
         <div className="winner-display" id="winner-display">
-            <p>There are no winners this time! :( </p>
+            <p>{message}</p>
             <button>Okay</button>
         </div>
         </div>
