@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#react-root {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(./components/images/background_1.jpg);
+    background-size: cover;
+    background-position: 52%;
+}
+
+@media screen and (max-width: 380px) {
+    #react-root {
+        background-position: 0%;
+    }
+}
